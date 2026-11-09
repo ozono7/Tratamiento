@@ -39,6 +39,14 @@ moles_N <- moles_NH3  # moles de N
 masa_N <- moles_N * peso_molecular_N  # masa de N en g
 
 # ---------------------- Cálculo del porcentaje de nitrógeno ----------------------
+# Método Kjeldahl (APHA, Standard Methods for the Examination of Water and
+# Wastewater, 4500-Norg B, macro-Kjeldahl): el nitrógeno orgánico y amoniacal se
+# convierte en amonio, se destila como NH3 sobre un volumen conocido de ácido
+# estándar y el exceso de ácido se valora con base estándar. La masa de N es
+# (meq de ácido - meq de base) x 14.007 mg/meq (el script usa 14, redondeado);
+# con molaridades, los moles de NaOH se dividen entre 2 porque 2 NaOH neutralizan
+# 1 H2SO4. El resultado se refiere a la muestra original con el factor de
+# dilución/alícuota (volumen_dilucion / volumen_alicuota).
 # La masa de N calculada está en la alícuota: la alícuota es solo una parte de
 # la dilución, así que la masa de N de la muestra completa es masa_N por el
 # factor de dilución (volumen_dilucion / volumen_alicuota). El porcentaje

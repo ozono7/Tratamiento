@@ -1,5 +1,5 @@
 # ==========================================================================
-# Problema 7: Diseño de un desarenador de sección rectangular
+# Problema 10: Diseño de un desarenador de sección rectangular
 # ==========================================================================
 # Autor: Dr. José Juan Torres Martínez
 # Docente de Ciencias Químicas
@@ -10,6 +10,7 @@
 # Fecha: 2023-10-30
 #
 # Descripción: Diseño de un desarenador de sección rectangular.
+# Nota: el título lleva el número del archivo (10). En el problemario original este ejercicio era el número 7; aquí se cita por su número de archivo para que título y archivo coincidan.
 # ==========================================================================
 
 

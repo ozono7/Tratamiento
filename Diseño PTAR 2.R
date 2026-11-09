@@ -170,14 +170,26 @@ calcular_lodos_lacteos <- function(Q, SST, Grasas, DBO) {
   # Espesamiento por gravedad
   area_espesador <- lodos_totales / 25  # 25 kg/m²/d
   
-  # Digestión anaerobia (alta producción de biogás)
-  volumen_digestor <- lodos_totales / 2.5  # 2.5 kgVS/m³/d
-  produccion_biogas <- lodos_totales * 0.8  # m³/d (0.8 m³/kg lodo)
+  # Digestión anaerobia (el biogás sale de los sólidos volátiles destruidos)
+  # Solo la fracción volátil del lodo genera biogás: fracción volátil típica
+  # del lodo mixto (primario + secundario) 70 % de los sólidos totales, y
+  # destrucción de sólidos volátiles en digestión mesófila 50 % (rango típico
+  # 40-60 %). Rendimiento de biogás 0.9 m³/kg SV destruidos (Metcalf & Eddy,
+  # Wastewater Engineering, 5a ed.: 0.75-1.12 m³/kg SV destruidos).
+  # La carga del digestor se aplica sobre los SV alimentados, no sobre los
+  # lodos totales: volumen = SV / carga (2.5 kgSV/m³/d).
+  fraccion_volatil <- 0.70  # SV/SST del lodo mixto
+  solidos_volatiles <- lodos_totales * fraccion_volatil  # kgSV/d alimentados
+  volumen_digestor <- solidos_volatiles / 2.5  # 2.5 kgSV/m³/d
+  sv_destruidos <- solidos_volatiles * 0.50  # kgSV/d destruidos (50 %)
+  produccion_biogas <- sv_destruidos * 0.9  # m³/d (0.9 m³/kg SV destruidos)
   
   return(list(
     lodos_primarios = round(lodos_primarios, 2),
     lodos_secundarios = round(lodos_secundarios, 2),
     lodos_totales = round(lodos_totales, 2),
+    solidos_volatiles = round(solidos_volatiles, 2),  # kgSV/d alimentados al digestor
+    sv_destruidos = round(sv_destruidos, 2),          # kgSV/d destruidos
     volumen_lodos = round(volumen_lodos, 2),
     espesador = list(
       area = round(area_espesador, 2),
@@ -203,8 +215,11 @@ calcular_lodos_lacteos <- function(Q, SST, Grasas, DBO) {
 trampa_grasas <- calcular_trampa_grasas(datos_industriales$caudal$promedio, 
                                         datos_industriales$calidad_agua$Grasas)
 
-# Corrección de pH (neutralización)
-dosificacion_cal <- (250000 * (7 - 5) * 0.02)  # L/día * ΔpH * factor
+# Corrección de pH (neutralización): el agua entra a pH 5.0 y se lleva a pH 7.0
+# con cal. La fórmula da la dosis en g/día (el factor 0.02 es g de cal por litro
+# y por unidad de pH): 250 000 L/día x 2 unidades de pH x 0.02 = 10 000 g/día.
+dosificacion_cal <- (250000 * (7 - 5) * 0.02)  # g/día de cal
+dosificacion_cal_kgd <- dosificacion_cal / 1000  # kg/día de cal
 
 # Tratamiento primario
 daf <- calcular_daf(datos_industriales$caudal$promedio,
@@ -315,7 +330,7 @@ diagrama_ptar_industrial <- grViz("
     node [shape = rectangle, fillcolor = lightgrey, fontsize = 11]
     lodos_daf [label = 'Lodos Primarios\\n4% sólidos']
     espesador [label = 'Espesador\\n25 kg/m²/d']
-    digestor [label = 'Digestor Anaerobio\\nProducción biogás\\n0.8 m³/kg lodo']
+    digestor [label = 'Digestor Anaerobio\\nProducción biogás\\n0.9 m³/kg SV destruidos']
     deshidratacion [label = 'Centrífuga\\n+ Polímero\\n25% sólidos']
     
     // Flujo principal
@@ -339,7 +354,8 @@ diagrama_ptar_industrial <- grViz("
 cat("\n=== DISEÑO DE PTAR PARA INDUSTRIA LÁCTEA ===\n")
 cat(paste("Capacidad:", datos_industriales$capacidad, "\n"))
 cat(paste("Caudal promedio:", datos_industriales$caudal$promedio, "L/s\n"))
-cat(paste("Caudal diario:", datos_industriales$caudal$diario, "m³/d\n\n"))
+cat(paste("Caudal diario:", datos_industriales$caudal$diario, "m³/d\n"))
+cat(paste("Dosificación de cal (neutralización pH 5.0 -> 7.0):", dosificacion_cal_kgd, "kg/d\n\n"))
 
 # Tablas de diseño
 cat("\n=== COMPONENTES PRINCIPALES ===\n")
@@ -410,3 +426,4 @@ print(diagrama_ptar_industrial)
 # - Las grasas se eliminan sobre todo al inicio (trampa de grasas y DAF, 95 %) y la DBO sobre todo en el SBR (95 % de lo que queda).
 # - Los límites normativos del efluente en este diseño son 50 mg/L de DBO, 30 mg/L de SST y 10 mg/L de grasas.
 # - Un efluente que cumple con poco margen, como la DBO final de unos 44 mg/L frente al límite de 50, exige operar la planta con cuidado y vigilar la entrada.
+# - El biogás se calcula por kg de sólidos volátiles destruidos (0.9 m³/kg SV), no por kg de lodo total: solo la fracción volátil destruida genera gas, por eso el digestor se dimensiona con los SV alimentados.

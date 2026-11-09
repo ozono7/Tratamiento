@@ -125,11 +125,20 @@ generar_recomendaciones <- function(parametros, datos) {
     cat("\n✅ SISTEMA DENTRO DE PARÁMETROS ÓPTIMOS\n")
   }
   
-  # Recomendación de ahorro energético
-  optimal_row <- escenarios[which.min(escenarios$coste_aireacion), ]
-  cat(sprintf("\n💡 OPORTUNIDAD: Reducir costes un %.0f%% ajustando θc a %.1f días\n",
-              (1 - min(escenarios$coste_aireacion)/max(escenarios$coste_aireacion)) * 100,
-              optimal_row$theta_c))
+  # Coste de trabajar en el θc del diagnóstico (el coste es secundario frente al efluente)
+  # El θc más barato del modelo es 3 días, pero queda por debajo del mínimo para
+  # nitrificación: a 20 °C hacen falta al menos unos 4 días de edad del lodo para que
+  # los nitrificantes no se laven del sistema (Metcalf & Eddy, Wastewater Engineering:
+  # θc mínimo de nitrificación ≈ 4 días a 20 °C; rango óptimo 4-8 días). Bajar θc a
+  # 3 días abarata la aireación pero incumple el diagnóstico, que pide subir a 5-7 días.
+  coste_minimo <- min(escenarios$coste_aireacion)
+  coste_5 <- escenarios$coste_aireacion[escenarios$theta_c == 5]
+  coste_7 <- escenarios$coste_aireacion[escenarios$theta_c == 7]
+  cat("\n💡 COSTE: el θc más barato del modelo es 3 días, pero está por debajo del mínimo para nitrificación.\n")
+  cat(sprintf("   Trabajar a θc = 5 días cuesta un %.0f%% más de aireación que ese mínimo, y a θc = 7 días un %.0f%% más.\n",
+              (coste_5 / coste_minimo - 1) * 100,
+              (coste_7 / coste_minimo - 1) * 100))
+  cat("   Ese sobrecoste es el precio de cumplir el efluente: el coste no manda sobre el diagnóstico.\n")
 }
 
 # EJECUCIÓN Y REPORTE
@@ -167,6 +176,7 @@ generar_recomendaciones(parametros, datos)
 # - La relación F/M y la tasa de utilización U se expresan en d⁻¹ (por día) y su rango óptimo orienta la operación de la planta.
 # - La eficiencia de remoción de DBO5 se juzga contra la meta del 90 %: por debajo de ese valor hay que actuar sobre la edad del lodo o sobre las purgas.
 # - Un gráfico con dos variables en un mismo eje exige avisar cuando una de ellas está escalada, como el coste multiplicado por 10 000 en el primer gráfico.
+# - La edad del lodo tiene un mínimo para nitrificación: por debajo de unos 4 días a 20 °C los nitrificantes se lavan del sistema y la nitrificación se pierde, así que bajar θc para ahorrar aireación incumple el efluente.
 
 cat("\n----------------------------------------\n")
 cat("Resumen de parámetros actuales:\n")

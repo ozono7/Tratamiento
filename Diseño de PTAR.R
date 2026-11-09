@@ -182,18 +182,32 @@ calcular_reactor <- function(Q, DBO, F_M = 0.3, MLSS = 2500, edad_lodos = 10) {
 
 # Función para sedimentador secundario
 # Objetivo: Separar los lodos biológicos del efluente tratado
-calcular_sed_secundario <- function(Q, SST, carga_solida = 4) {
+# La carga de sólidos se calcula con el licor mezclado, no con los SST del
+# efluente primario: al clarificador llega el caudal de entrada más el de
+# recirculación, con la concentración de biomasa del reactor (MLSS).
+# Carga de sólidos = (Q + Qr) * MLSS / A, con Qr = R * Q.
+# Metcalf & Eddy, Wastewater Engineering: tasa de carga de sólidos de diseño
+# 4-6 kg/m²/h a caudal promedio y tasa de carga superficial 16-32 m³/m²/d a
+# caudal promedio. Con los datos del diseño (Q = 54 m³/h, R = 0.5,
+# MLSS = 2500 mg/L, carga de sólidos = 4 kg/m²/h) el área es 50.6 m² y el
+# diámetro 8.0 m; la carga superficial queda en 25.6 m³/m²/d, dentro del rango.
+calcular_sed_secundario <- function(Q, MLSS, carga_solida = 4, razon_recirculacion = 0.5) {
   # Parámetros:
-  # carga_solida: kgSS/m²/h - Determina el área necesaria para sedimentación
-  
+  # MLSS: mg/L - Concentración de biomasa del licor mezclado (la del reactor)
+  # carga_solida: kgSS/m²/h - Tasa de carga de sólidos de diseño
+  # razon_recirculacion: Qr/Q - Recirculación respecto al caudal de entrada (típico 0.5)
+
   # Convertir caudal a m³/h:
   Q_m3h <- Q * 3.6  # 15 L/s * 3.6 = 54 m³/h
-  
-  # Calcular carga másica (M = Q * SST):
-  carga_masica_kgd <- Q_m3h * 24 * SST / 1000  # kgSS/d
-  
-  # Calcular área requerida (A = Q*SST / carga_solida):
-  area <- (Q_m3h * SST) / (carga_solida * 1000)
+
+  # Caudal total al clarificador (entrada + recirculación):
+  Q_total_m3h <- Q_m3h * (1 + razon_recirculacion)  # m³/h
+
+  # Calcular carga másica con el licor mezclado (M = (Q + Qr) * MLSS):
+  carga_masica_kgh <- Q_total_m3h * MLSS / 1000  # kgSS/h (MLSS en mg/L = g/m³)
+
+  # Calcular área requerida (A = M / carga_solida):
+  area <- carga_masica_kgh / carga_solida  # m²
   
   # Diámetro para tanque circular (A = πr² → D = 2*sqrt(A/π)):
   diametro <- round(sqrt(area * 4 / pi), 1)
@@ -216,15 +230,21 @@ calcular_sed_secundario <- function(Q, SST, carga_solida = 4) {
 
 # Función para sistema de aireación
 # Objetivo: Proporcionar oxígeno para el crecimiento de microorganismos
-calcular_aireacion <- function(Q, DBO, eficiencia = 0.08) {
+# Eficiencia de aireación estándar (SAE, Standard Aeration Efficiency): kg de O2
+# transferidos por kWh consumido. Para difusores de burbuja fina el valor típico
+# es 2.0-2.5 kgO2/kWh (Metcalf & Eddy, Wastewater Engineering); se usa 2.0 kgO2/kWh.
+# El valor anterior (0.08) era una eficiencia de transferencia en tanto por uno
+# (8 %), no una SAE, y con la fórmula P = RO / (24 * SAE) daba una potencia unas
+# 25 veces mayor que la real (164.5 kW en vez de 6.6 kW).
+calcular_aireacion <- function(Q, DBO, SAE = 2.0) {
   # Parámetros:
-  # eficiencia: kgO2/kWh - Eficiencia de transferencia de oxígeno (típico 0.08-0.12)
-  
+  # SAE: kgO2/kWh - Eficiencia estándar de aireación (típico 2.0-2.5 para burbuja fina)
+
   # Requerimiento teórico de oxígeno (1.5 kgO2/kgDBO):
   RO <- 1.5 * Q * 86.4 * DBO / 1000  # kgO2/d
-  
-  # Potencia requerida (P = RO / (24 * eficiencia)):
-  potencia_kW <- RO / (24 * eficiencia)
+
+  # Potencia requerida (P = RO / (24 * SAE)):
+  potencia_kW <- RO / (24 * SAE)
   
   # Caballos de fuerza del motor (1 kW ≈ 1.341 hp):
   hp <- potencia_kW / 0.75 * 1.341  # Considerando 75% eficiencia del motor
@@ -237,7 +257,7 @@ calcular_aireacion <- function(Q, DBO, eficiencia = 0.08) {
     potencia = round(potencia_kW, 2),      # kW
     hp = round(hp, 1),                    # hp
     caudal_aire = round(caudal_aire_m3h, 2),  # m³/h
-    eficiencia = eficiencia * 100          # %
+    SAE = SAE                              # kgO2/kWh
   ))
 }
 
@@ -331,7 +351,7 @@ SST_primario <- datos_entrada$calidad_agua$SST * (1 - 0.6)    # 60% remoción de
 
 # Tratamiento secundario (lodos activados)
 reactor <- calcular_reactor(datos_entrada$caudal_Ls, DBO_primario)
-sed_secundario <- calcular_sed_secundario(datos_entrada$caudal_Ls, SST_primario)
+sed_secundario <- calcular_sed_secundario(datos_entrada$caudal_Ls, reactor$MLSS)
 
 # Sistema de aireación (para lodos activados)
 aireacion <- calcular_aireacion(datos_entrada$caudal_Ls, DBO_primario)
@@ -434,7 +454,7 @@ diagrama_ptar <- grViz("
     desarenador [label = 'Desarenador\\nV = 0.9 m³\\nTR = 1 min']
     sed_primario [label = 'Sed. Primario\\n45 m²\\nTR = 2 h']
     reactor [label = 'Reactor Biológico\\n277.4 m³\\nMLSS = 2,500 mg/L']
-    sed_secundario [label = 'Sed. Secundario\\nØ = 1.0 m']
+    sed_secundario [label = 'Sed. Secundario\\nØ = 8.0 m']
     clorador [label = 'Cloración\\nDosis: 8 mg/L\\nTC = 30 min']
     efluente [label = 'Efluente Tratado\\nDBO < 30 mg/L\\nSST < 30 mg/L']
     
@@ -588,12 +608,12 @@ crear_tabla_diseño(data.frame(
 
 # Sistema de aireación
 crear_tabla_diseño(data.frame(
-  Parámetro = c("Requerimiento O₂", "Potencia", "Motor", "Caudal aire", "Eficiencia"),
-  Valor = c(paste(aireacion$requerimiento_oxigeno, "kgO₂/día"), 
-            paste(aireacion$potencia, "kW"), 
+  Parámetro = c("Requerimiento O₂", "Potencia", "Motor", "Caudal aire", "Eficiencia (SAE)"),
+  Valor = c(paste(aireacion$requerimiento_oxigeno, "kgO₂/día"),
+            paste(aireacion$potencia, "kW"),
             paste(aireacion$hp, "hp"),
             paste(aireacion$caudal_aire, "m³/h"),
-            paste(aireacion$eficiencia, "%"))
+            paste(aireacion$SAE, "kgO₂/kWh"))
 ), "Diseño de Sistema de Aireación")
 
 # Manejo de lodos
