@@ -10,7 +10,6 @@
 # Fecha: 2023-10-30
 #
 # Descripción: Cálculo de caudales en un canal Parshall de 9 pulgadas.
-# Nota: el título lleva el número del archivo (9). En el problemario original este ejercicio era el número 6; aquí se cita por su número de archivo para que título y archivo coincidan.
 # ==========================================================================
 
 

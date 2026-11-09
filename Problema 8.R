@@ -10,7 +10,6 @@
 # Fecha: 2023-10-30
 #
 # Descripción: Dimensiones de un desarenador horizontal.
-# Nota: el título lleva el número del archivo (8). En el problemario original este ejercicio era el número 5; aquí se cita por su número de archivo para que título y archivo coincidan.
 # ==========================================================================
 
 
