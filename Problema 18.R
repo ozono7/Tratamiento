@@ -1,9 +1,15 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Concentración de microorganismos
-# -----------------------------------------------------------
+# ==========================================================================
+# Concentración de microorganismos en lodos activados
+# ==========================================================================
+# Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
+# Doctorado en Ciencias en Bioprocesos
+# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Material académico para estudiantes
+#
+# Descripción: Cálculo de la concentración de microorganismos en un sistema de lodos activados.
+# ==========================================================================
 
-# Datos comunes para ambos casos
 S0 <- 300       # DBO5 influente (mg/L)
 S <- 20         # DBO5 efluente (mg/L)
 Y <- 0.6        # Coeficiente de rendimiento (mg SSV/mg DBO5)

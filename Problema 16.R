@@ -1,11 +1,14 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
-
-# Tema: Dosificación y Coste de PAC en Tratamiento de Agua  
-# Objetivos: Caudal de PAC y coste de tratamiento  
+# ==========================================================================
+# Dosificación y Coste de PAC en Tratamiento de Agua
+# ==========================================================================
+# Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
+# Doctorado en Ciencias en Bioprocesos
+# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Material académico para estudiantes
+#
+# Descripción: Caudal de PAC y coste de tratamiento
+# ==========================================================================
 
 # Datos de entrada  
 densidad <- 1.23                # g/cm³  

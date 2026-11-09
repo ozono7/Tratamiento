@@ -1,14 +1,15 @@
-## Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# ----------------------------------------------------------- -----------------------------------------------------------
+# ==========================================================================
 # PROBLEMA: OPTIMIZACIÓN DE PLANTA DE LODOS ACTIVADOS
-# CONTEXTO: 
-# - Efluente con DBO5 inconsistente (20-50 mg/L, meta: <20 mg/L)
-# - Producción excesiva de lodos (X = 2500-4000 mg SSV/L)
-# - θc variable (3-8 días) por fallas en el control de purgas
-# -----------------------------------------------------------
-# LIBRERÍAS
+# ==========================================================================
+# Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
+# Doctorado en Ciencias en Bioprocesos
+# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Material académico para estudiantes
+#
+# Descripción: OPTIMIZACIÓN DE PLANTA DE LODOS ACTIVADOS
+# ==========================================================================
+
 library(ggplot2)  # Para gráficos profesionales
 library(scales)   # Para formato de ejes
 

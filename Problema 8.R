@@ -1,10 +1,16 @@
+# ==========================================================================
 # Problema 5: Dimensiones de un desarenador horizontal
+# ==========================================================================
 # Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
 # Doctorado en Ciencias en Bioprocesos
 # Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Material académico para estudiantes
 # Fecha: 2023-10-30
+#
+# Descripción: Dimensiones de un desarenador horizontal.
+# ==========================================================================
 
-# ---------------------- Definir constantes y variables ----------------------
 Q_m_d <- 12000        # Caudal medio en m³/d
 Q_m_s <- Q_m_d / (3600 * 24)  # Caudal medio en m³/s
 anchura_canal <- 1    # Anchura del canal en m

@@ -1,12 +1,15 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Cálculo de reactor y requerimientos de oxígeno para lodos activados
+# ==========================================================================
+# Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
+# Doctorado en Ciencias en Bioprocesos
+# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Material académico para estudiantes
+#
+# Descripción: Cálculo de reactor y requerimientos de oxígeno para lodos activados
+# ==========================================================================
 
-# Tema: Cálculo de reactor y requerimientos de oxígeno para lodos activados  
-# 
-# -----------------------------------------------------------
 # DATOS DE ENTRADA
 # -----------------------------------------------------------
 Q <- 3500                # Caudal (m³/día)

@@ -1,10 +1,14 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Laboratorio de Tratamiento de Aguas  
-# ----------------------------------------------------------- 
-
-# Tema: Análisis de Turbidez en Agua Potable  
-# Objetivos: Estadísticas básicas y cumplimiento de normativas  
+# ==========================================================================
+# Análisis de Turbidez en Agua Potable
+# ==========================================================================
+# Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
+# Doctorado en Ciencias en Bioprocesos
+# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Material académico para estudiantes
+#
+# Descripción: Estadísticas básicas y cumplimiento de normativas
+# ==========================================================================
 
 # Datos de turbidez (NTU)  
 turbidez <- c(0.85, 0.92, 0.88)  

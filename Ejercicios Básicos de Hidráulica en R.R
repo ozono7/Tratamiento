@@ -1,10 +1,14 @@
+# ==========================================================================
 # Ejercicios Básicos de Hidráulica en R
-
-# -----------------------------------------------------------
+# ==========================================================================
 # Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
 # Doctorado en Ciencias en Bioprocesos
 # Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
-# -----------------------------------------------------------
+# Material académico para estudiantes
+#
+# Descripción: Ejercicios básicos de hidráulica en R, incluyendo el cálculo del número de Reynolds.
+# ==========================================================================
 
 # 1. Cálculo del Número de Reynolds
 # Fórmula: Re = (densidad * velocidad * diametro) / viscosidad

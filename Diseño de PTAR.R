@@ -1,12 +1,15 @@
-# =============================================
+# ==========================================================================
 # DISEÑO DE PLANTA DE TRATAMIENTO DE AGUAS RESIDUALES (PTAR)
-# =============================================
-# Este script calcula y diseña los componentes principales de una PTAR para 5,000 habitantes
-# incluyendo pretratamiento, tratamiento primario/secundario, manejo de lodos y desinfección.
-# Basado en normativas NOM-001-SEMARNAT-2021 y estándares EPA.
-# =============================================
+# ==========================================================================
+# Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
+# Doctorado en Ciencias en Bioprocesos
+# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Material académico para estudiantes
+#
+# Descripción: Diseño de una planta de tratamiento de aguas residuales (PTAR).
+# ==========================================================================
 
-# -----------------------------------
 # 1. INSTALACIÓN Y CARGA DE PAQUETES
 # -----------------------------------
 # Paquetes necesarios para análisis, visualización y modelado

@@ -1,10 +1,16 @@
+# ==========================================================================
 # Problema 7: Diseño de un desarenador de sección rectangular
+# ==========================================================================
 # Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
 # Doctorado en Ciencias en Bioprocesos
 # Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Material académico para estudiantes
 # Fecha: 2023-10-30
+#
+# Descripción: Diseño de un desarenador de sección rectangular.
+# ==========================================================================
 
-# ---------------------- Definir constantes y variables ----------------------
 Q_m <- 450  # Caudal medio en m³/h
 Q_m_s <- Q_m / 3600  # Caudal medio en m³/s
 v_canal <- 0.3  # Velocidad del agua a lo largo del canal en m/s

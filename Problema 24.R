@@ -1,13 +1,15 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Cálculo de DBO5 en efluente usando modelo Schulze
+# ==========================================================================
+# Autor: José Juan Torres Martínez
+# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
+# Doctorado en Ciencias en Bioprocesos
+# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Material académico para estudiantes
+#
+# Descripción: Determinar la eficiencia de un filtro percolador de baja carga
+# ==========================================================================
 
-# Tema: Cálculo de DBO5 en efluente usando modelo Schulze  
-# Objetivo: Determinar la eficiencia de un filtro percolador de baja carga  
-
-# -----------------------------------------------------------
 # DATOS DE ENTRADA
 # -----------------------------------------------------------
 Diametro <- 30            # Diámetro del filtro (m)
