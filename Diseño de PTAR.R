@@ -36,7 +36,7 @@ library(scales)      # Funciones para escalas en gráficos
 datos_entrada <- list(
   poblacion = 5000,       # Número de habitantes servidos
   caudal_Ls = 15,         # Caudal promedio en litros/segundo
-  caudal_m3d = 1300,      # Caudal equivalente en m³/día (15 L/s * 86400 s/d / 1000 L/m³)
+  caudal_m3d = 15 * 86.4,  # Caudal equivalente en m³/día (15 L/s * 86400 s/d / 1000 L/m³ = 1296 m³/d)
   
   # Características del agua residual (valores típicos para aguas domésticas)
   calidad_agua = list(
@@ -431,17 +431,17 @@ diagrama_ptar <- grViz("
     node [shape = rectangle, style = filled, fillcolor = lightblue, fontname = Arial, fontsize = 12]
     influente [label = 'Agua Residual\\nQ = 15 L/s\\nDBO = 250 mg/L\\nSST = 150 mg/L']
     rejas [label = 'Rejas Gruesas\\nEspaciamiento: 50 mm']
-    desarenador [label = 'Desarenador\\nV = 3.6 m³\\nTR = 1 min']
-    sed_primario [label = 'Sed. Primario\\n50 m²\\nTR = 2 h']
-    reactor [label = 'Reactor Biológico\\n432 m³\\nMLSS = 2,500 mg/L']
-    sed_secundario [label = 'Sed. Secundario\\nØ = 8 m\\nTR = 2.5 h']
+    desarenador [label = 'Desarenador\\nV = 0.9 m³\\nTR = 1 min']
+    sed_primario [label = 'Sed. Primario\\n45 m²\\nTR = 2 h']
+    reactor [label = 'Reactor Biológico\\n277.4 m³\\nMLSS = 2,500 mg/L']
+    sed_secundario [label = 'Sed. Secundario\\nØ = 1.0 m']
     clorador [label = 'Cloración\\nDosis: 8 mg/L\\nTC = 30 min']
     efluente [label = 'Efluente Tratado\\nDBO < 30 mg/L\\nSST < 30 mg/L']
     
     node [shape = rectangle, fillcolor = lightgrey, fontsize = 11]
     lodos_primarios [label = 'Lodos Primarios\\n60% SST removidos']
-    espesador [label = 'Espesador\\nØ = 5 m\\nTR = 12 h']
-    digestor [label = 'Digestor\\n60 m³\\nTR = 25 días']
+    espesador [label = 'Espesador\\nØ = 2.6 m\\nTR = 12 h']
+    digestor [label = 'Digestor\\n229.5 m³\\nTR = 25 días']
     deshidratacion [label = 'Deshidratación\\nFiltros banda\\n75-80% humedad']
     lodos_exceso [label = 'Lodos en Exceso\\n30% del caudal']
     retorno [label = 'Retorno de Lodos\\n70% del caudal']
@@ -475,7 +475,7 @@ cat("\n=== DISEÑO COMPLETO DE PTAR PARA 5,000 HABITANTES ===\n")
 cat("\n1. DATOS DE ENTRADA:\n")
 print(data.frame(
   Parámetro = c("Población", "Caudal", "DBO", "DQO", "SST", "Coliformes", "N Total", "P Total"),
-  Valor = c("5,000 hab", "15 L/s (1,300 m³/d)", "250 mg/L", "400 mg/L", "150 mg/L", 
+  Valor = c("5,000 hab", "15 L/s (1,296 m³/d)", "250 mg/L", "400 mg/L", "150 mg/L", 
             "1,000,000 MPN/100mL", "45 mg/L", "12 mg/L")
 ))
 
@@ -510,6 +510,7 @@ print(data.frame(
 # Mostrar gráficos
 cat("\n=== GRÁFICOS DE RESULTADOS ===\n")
 print(g_dbo)
+ggsave("ptar_evolucion_dbo.png", plot = g_dbo, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Evolución de DBO a través del tratamiento
@@ -519,6 +520,7 @@ print(g_dbo)
 # - Lo que se aprecia: la DBO cae de 250 mg/L en la entrada a 162.5 mg/L tras el tratamiento primario y a unos 8.1 mg/L tras el secundario, quedando muy por debajo de la línea de 30 mg/L.
 # - Qué significa: el tren de tratamiento funciona: el primario quita el 35 % de la DBO y el secundario el 95 % de lo que queda, así que el efluente final cumple con holgura el límite de 30 mg/L.
 print(g_sst)
+ggsave("ptar_evolucion_sst.png", plot = g_sst, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Evolución de SST a través del tratamiento
@@ -528,6 +530,7 @@ print(g_sst)
 # - Lo que se aprecia: los SST caen de 150 mg/L en la entrada a 60 mg/L tras el primario y a 6 mg/L tras el secundario, quedando muy por debajo de la línea de 30 mg/L.
 # - Qué significa: la sedimentación primaria quita el 60 % de los sólidos y el tratamiento secundario el 90 % de los que quedan: el efluente final cumple con holgura el límite de 30 mg/L.
 print(g_coliformes)
+ggsave("ptar_coliformes.png", plot = g_coliformes, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Evolución de Coliformes Fecales

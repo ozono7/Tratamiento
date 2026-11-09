@@ -13,7 +13,6 @@
 
 
 library(ggplot2)  # Para gráficos profesionales
-library(scales)   # Para formato de ejes
 
 # -----------------------------------------------------------
 # DATOS DE ENTRADA (Caso real reportado por operadores)
@@ -139,6 +138,7 @@ cat(" INFORME TÉCNICO: OPTIMIZACIÓN DE LODOS ACTIVADOS\n")
 cat("========================================\n")
 
 print(g1)
+ggsave("problema_20_biomasa_costes.png", plot = g1, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Optimización: Edad del lodo vs Biomasa y Costos
@@ -148,6 +148,7 @@ print(g1)
 # - Lo que se aprecia: al aumentar la edad del lodo, tanto la biomasa como el coste suben: la biomasa crece rápido al principio y más despacio después, y el coste sigue esa misma tendencia porque depende de la biomasa.
 # - Qué significa: envejecer el lodo acumula más biomasa en el reactor, pero cuesta más aireación; el punto de trabajo debe equilibrar un tratamiento suficiente con un coste razonable. La lectura del coste en este gráfico es solo comparativa, por el factor de escala de 10 000.
 print(g2)
+ggsave("problema_20_carga_organica.png", plot = g2, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Control de Carga Orgánica

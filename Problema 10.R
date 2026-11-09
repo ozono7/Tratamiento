@@ -41,4 +41,11 @@ cat("\n---- RESULTADOS ----\n")
 cat("a) Anchura del desarenador: ", anchura, "m\n")
 cat("b) Altura del desarenador: ", altura, "m\n")
 cat("c) Longitud del desarenador: ", longitud, "m\n")
-cat("d) Volumen de arenas recogidas diariamente: ", volumen_arenas_diario, "m³\n")
+cat("d) Volumen de arenas recogidas diariamente: ", volumen_arenas_diario, "m³/día\n")
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El área del desarenador sale del caudal y la velocidad: A = Q / v, y con la relación profundidad/anchura se sacan las dos dimensiones.
+# - La longitud depende de la velocidad del agua y de la velocidad de sedimentación de las arenas.
+# - El volumen de arenas recogido al día es la generación por m3 de agua por el caudal diario.

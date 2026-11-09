@@ -31,3 +31,10 @@ cat("Caudal medio: ", Q_m_s, "m³/s\n")
 cat("Altura del canal: ", altura, "m\n")
 cat("Longitud del canal: ", longitud, "m\n")
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - La altura del canal sale del caudal, la anchura y la velocidad: A = Q / v.
+# - La longitud del desarenador depende de la velocidad horizontal y de la velocidad de sedimentación de la arena.
+# - Una velocidad de 0.3 m/s mantiene la arena en suspensión hasta que sedimenta sin arrastrarla.

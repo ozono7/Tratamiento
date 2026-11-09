@@ -15,12 +15,12 @@
 # Datos de entrada  
 Q <- 35000                     # Caudal medio (m³/d)  
 n <- 2                         # Número de tanques  
-V <- 40                        # Carga hidráulica (m³/m²·d)  
+carga_hidraulica <- 40           # Carga hidráulica (m³/m²·d)  
 A <- 6.2                       # Anchura por tanque (m)  
 P <- 4                         # Profundidad (m)  
 
 # 1. Cálculo del área superficial total (S)  
-S <- Q / V                     # Área total (m²)  
+S <- Q / carga_hidraulica        # Área total (m²)  
 
 # 2. Longitud por tanque (L)  
 L <- S / (A * n)               # Longitud por tanque (m)  
@@ -36,7 +36,7 @@ cat("DISEÑO DE DECANTADOR PRIMARIO RECTANGULAR\n")
 cat("----------------------------------------\n")  
 cat("Caudal medio (Q):", Q, "m³/d\n")  
 cat("Número de tanques (n):", n, "\n")  
-cat("Carga hidráulica (V):", V, "m³/m²·d\n")  
+cat("Carga hidráulica:", carga_hidraulica, "m³/m²·d\n")  
 cat("Anchura por tanque (A):", A, "m\n")  
 cat("Profundidad (P):", P, "m\n\n")  
 cat("Área superficial total (S):", round(S, 1), "m²\n")  
@@ -51,3 +51,10 @@ if (TRH_horas >= 1.5 && TRH_horas <= 2.5) {
 } else {  
   cat("⚠️ TRH fuera de rango. Ajustar dimensiones.\n")  
 }  
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El área superficial del decantador sale del caudal y la carga hidráulica: S = Q / carga.
+# - Con el área, la anchura y el número de tanques se obtiene la longitud de cada tanque.
+# - El tiempo de retención hidráulica es el volumen total entre el caudal: aquí 2.4 horas, dentro del rango típico de 1.5 a 2.5 horas.

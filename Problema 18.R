@@ -64,3 +64,10 @@ cat("- El sistema con recirculación mantiene una concentración de biomasa",
 cat("- Esto demuestra la eficiencia de los sistemas con recirculación para mantener\n")
 cat("  alta concentración de microorganismos a pesar de un HRT más corto.\n")
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - Sin recirculación, la edad del lodo es igual al tiempo de retención hidráulico.
+# - Con recirculación, la edad del lodo y el tiempo de retención se separan: se mantiene más biomasa con un HRT más corto.
+# - Con los datos del problema, la recirculación mantiene 20 veces más biomasa que sin ella.

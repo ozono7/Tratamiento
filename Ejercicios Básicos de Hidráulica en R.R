@@ -84,3 +84,10 @@ diametro_tubo <- 0.1  # m
 caudal <- calcular_caudal(diametro_tubo, velocidad_flujo)
 print(paste("Caudal Volumétrico:", caudal, "m^3/s"))
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El número de Reynolds dice el régimen de flujo: laminar por debajo de 2000, transicional entre 2000 y 4000 y turbulento por encima de 4000.
+# - La viscosidad dinámica es la fuerza de corte entre el gradiente de velocidad.
+# - El caudal volumétrico es el área de la sección por la velocidad del flujo.

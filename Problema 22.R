@@ -116,6 +116,7 @@ g <- ggplot(df, aes(x = Proceso, y = Horas, fill = Proceso)) +
   annotate("text", x = 1.5, y = 6.2, label = "Referencia: 6 horas", color = "red")
 
 print(g)
+ggsave("problema_22_hrt.png", plot = g, width = 8, height = 5, dpi = 300)
 
                 
 # --------------------------------------------------------------------------

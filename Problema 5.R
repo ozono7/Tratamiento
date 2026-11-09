@@ -36,12 +36,21 @@ cat("¿Cumple con el límite de la OMS (<1.0 NTU)?:", ifelse(cumple_oms, "SÍ", 
 cat("¿Precisión aceptable (CV < 5%)?:", ifelse(cumple_cv, "SÍ", "NO"), "\n")  
 cat("----------------------------------------\n")  
 
-# Gráfico de barras (opcional)  
-barplot(turbidez, names.arg = c("Réplica 1", "Réplica 2", "Réplica 3"),  
-        col = "lightblue", main = "Mediciones de Turbidez",  
-        ylab = "Turbidez (NTU)", ylim = c(0, 1.2))  
-abline(h = 1.0, col = "red", lty = 2, lwd = 2)  
-text(x = 1:3, y = turbidez + 0.05, labels = turbidez)  
+# Gráfico de barras
+library(ggplot2)
+grafico_turbidez <- ggplot(data.frame(Réplica = factor(c("Réplica 1", "Réplica 2", "Réplica 3"),
+                                                      levels = c("Réplica 1", "Réplica 2", "Réplica 3")),
+                                     Turbidez = turbidez),
+                           aes(x = Réplica, y = Turbidez)) +
+  geom_bar(stat = "identity", fill = "lightblue") +
+  geom_hline(yintercept = 1.0, linetype = "dashed", color = "red", linewidth = 1) +
+  geom_text(aes(label = Turbidez), vjust = -0.5) +
+  labs(title = "Mediciones de Turbidez", y = "Turbidez (NTU)", x = "") +
+  ylim(0, 1.2) +
+  theme_minimal()
+
+print(grafico_turbidez)
+ggsave("problema_05_turbidez.png", plot = grafico_turbidez, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Mediciones de Turbidez

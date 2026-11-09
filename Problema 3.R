@@ -33,7 +33,7 @@ DBO5_total_eliminar <- DBO5_eliminar * volumen_vertido  # mg
 DBO5_total_eliminar_g <- DBO5_total_eliminar / 1000  # g
 
 # ---------------------- Cálculo del coste total del tratamiento ----------------------
-coste_total <- DBO5_total_eliminar_g * coste_tratamiento  # €
+coste_total <- DBO5_total_eliminar_g * coste_tratamiento  # $
 
 # ---------------------- Mostrar resultados ----------------------
 cat("\n---- RESULTADOS ----\n")
@@ -44,3 +44,10 @@ cat("Coste total del tratamiento: ", round(coste_total, 2), "$\n")
 
                   
                   
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - La DBO5 de un vertido de glucosa se calcula por estequiometría: 1 mol de glucosa consume 6 mol de O2.
+# - Solo hay que eliminar la DBO5 por encima del límite permitido (25 mg/L).
+# - El coste total es la masa de O2 a eliminar por el precio por gramo.

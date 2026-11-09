@@ -50,7 +50,7 @@ library(ggplot2)
 caudal_range <- seq(1000, 2000, by = 100)  
 va_range <- caudal_range / A  
 
-ggplot(data.frame(Caudal = caudal_range, Velocidad = va_range),  
+g <- ggplot(data.frame(Caudal = caudal_range, Velocidad = va_range),  
        aes(x = Caudal, y = Velocidad * 1000 / 3600)) +  
   geom_line(color = "blue", linewidth = 1) +  
   geom_hline(yintercept = 0.7, linetype = "dashed", color = "red") +  
@@ -58,6 +58,9 @@ ggplot(data.frame(Caudal = caudal_range, Velocidad = va_range),
        x = "Caudal (m³/h)",  
        y = "Velocidad Ascensional (mm/s)") +  
   theme_minimal()  
+
+print(g)
+ggsave("problema_13_velocidad_ascensional.png", plot = g, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Relación Caudal-Velocidad Ascensional

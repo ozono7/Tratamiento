@@ -77,6 +77,7 @@ g <- ggplot(df, aes(x = Profundidad, y = DBO5_efluente)) +
   theme_minimal()
 
 print(g)
+ggsave("problema_24_profundidad.png", plot = g, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Efecto de la Profundidad del Lecho en la DBO5 Efluente

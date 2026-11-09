@@ -55,3 +55,10 @@ if (theta_c >= 1 && theta_c <= 5) {
 if (HRT == theta_c) {  
   cat("Nota: HRT = θ₀ indica que no hay recirculación de sólidos.\n")  
 }  
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El HRT es el volumen del reactor entre el caudal.
+# - La tasa de crecimiento específica sigue a Monod: mu = um * S / (Ks + S).
+# - La edad del lodo es 1 / (mu - kd): aquí 1.45 días, dentro del rango típico de 1 a 5 días.

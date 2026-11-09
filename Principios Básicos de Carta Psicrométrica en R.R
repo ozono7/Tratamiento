@@ -82,3 +82,11 @@ temp_final <- 80  # °C
 calor_transferido <- calcular_intercambio_calor(masa_agua, temp_inicial, temp_final)
 print(paste("Calor Transferido:", calor_transferido, "kJ"))
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - La humedad relativa es la presión de vapor real entre la de saturación, por 100.
+# - El punto de rocío se estima con la fórmula de Magnus-Tetens a partir de la temperatura y la humedad relativa.
+# - El volumen específico del aire húmedo sale de la ecuación de gases: v = R * T / P.
+# - El calor intercambiado con el agua es masa por calor específico por el salto de temperatura.

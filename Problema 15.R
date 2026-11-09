@@ -58,3 +58,10 @@ if (dosis_g_m3 >= 5 && dosis_g_m3 <= 20) {
 } else {  
   cat("⚠️ Dosis demasiado alta. Riesgo de sobredosificación y aumento de lodos.\n")  
 }  
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - La dosis práctica en g/m3 sale de la masa de producto activo dosificada por hora entre el caudal de agua.
+# - La densidad en g/cm3 por 1000 da g/L, y por la riqueza da los gramos activos por litro de coagulante.
+# - La dosis calculada (13.12 g/m3) cae dentro del rango típico de coagulación de 5 a 20 g/m3.

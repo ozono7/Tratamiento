@@ -21,7 +21,7 @@ X <- 2200                # Concentración microorganismos (mg SSV/L)
 # Calidades del agua:
 DBO5_in <- 250           # DBO5 influente (mg/L)
 DBO5_efl <- 25           # DBO5 efluente (90% remoción)
-NTK_in <- 9             # NTK influente (mg/L) #error
+NTK_in <- 39            # NTK influente (mg/L)
 NTK_efl <- 0.39          # NTK efluente (99% remoción)
 
 # Coeficientes:
@@ -35,8 +35,7 @@ kd <- 0.05               # Coef. decaimiento (para nitrificación)
 
 # 1. Cálculo de parámetros U 
 U_DBO <- 0.34            # Dato proporcionado en la imagen (kg DBO/kg SSVLM-d)
-U_NTK <- (1/theta_c + kd)/Yn  # Ecuación 
-U_NTK <- (1/9 + 0.05)/0.2     # = 0.81 kg NTK/kg SSVLM-d
+U_NTK <- (1/theta_c + kd)/Yn  # = 0.81 kg NTK/kg SSVLM-d
 
 # 2. Cálculo de HRT (Tiempo Retención Hidráulica)
 # Para DBO:
@@ -46,18 +45,18 @@ HRT_DBO <- (DBO5_in - DBO5_efl)/(X * U_DBO)  # = 0.301 días = 7.2 h
 # Cálculo de F_N (factor de corrección)
 F_N <- 1/(1 + (Yb*(DBO5_in - DBO5_efl))/(Yn*(NTK_in - NTK_efl)))  # = 0.064
 
-HRT_NTK <- (NTK_in - NTK_efl)/((X * F_N) * U_NTK)  # = 0.34 días = 8.2 h
+HRT_NTK <- (NTK_in - NTK_efl)/((X * F_N) * U_NTK)  # = 0.34 días = 8.1 h
 
 # 3. Volumen del reactor (según etapa limitante)
 HRT <- max(HRT_DBO, HRT_NTK)  # Nitrificación es limitante
-V_reactor <- Q * HRT           # = 1190 m³
+V_reactor <- Q * HRT           # = 1187 m³
 
 # 4. Cálculo de purga de lodos (Px)
-Px <- (V_reactor * X)/(theta_c * 1000)  # = 290.89 kg/día
+Px <- (V_reactor * X)/(theta_c * 1000)  # = 290 kg/día
 
 # 5. Requerimiento de oxígeno (OUR)
 OUR <- (1.46 * Q * (DBO5_in - DBO5_efl) * 1e-3 - 1.42 * Px) + 
-  (4.57 * Q * (NTK_in - NTK_efl) * 1e-3)  # = 1362 kg O2/día
+  (4.57 * Q * (NTK_in - NTK_efl) * 1e-3)  # = 1355 kg O2/día
 
 # -----------------------------------------------------------
 # PRESENTACIÓN DE RESULTADOS
@@ -84,7 +83,7 @@ cat(" - Oxígeno requerido (OUR):", round(OUR, 0), "kg O2/día\n")
 cat("\n----------------------------------------\n")
 cat(" NOTAS TÉCNICAS:\n")
 cat("----------------------------------------\n")
-cat("1. La nitrificación es la etapa limitante (8.2 h vs 7.2 h para DBO5)\n")
+cat("1. La nitrificación es la etapa limitante (", round(HRT_NTK*24, 1), " h vs ", round(HRT_DBO*24, 1), " h para DBO5)\n")
 cat("2. El oxígeno para nitrificación representa el", 
     round(4.57*Q*(NTK_in-NTK_efl)*1e-3/OUR*100, 1), "% del total\n")
 
@@ -113,27 +112,29 @@ g2 <- ggplot(datos_grafico, aes(x = Proceso, y = Oxigeno_kg, fill = Proceso)) +
 
 # Visualizar gráficos
 print(g1)
+ggsave("problema_21_hrt.png", plot = g1, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Comparación de Tiempos de Retención
 # --------------------------------------------------------------------------
 # - Eje X: el proceso (DBO5 o Nitrificación). Es una categoría, no una cantidad medida, por eso no tiene unidades.
 # - Eje Y: el tiempo de retención hidráulica (HRT) en horas. El HRT es el tiempo promedio que el agua permanece dentro del reactor.
-# - Lo que se aprecia: la barra de nitrificación (unas 7.7 horas según el cálculo del código) es un poco más alta que la de DBO5 (7.2 horas).
+# - Lo que se aprecia: la barra de nitrificación (unas 8.1 horas según el cálculo del código) es un poco más alta que la de DBO5 (7.2 horas).
 # - Qué significa: la nitrificación necesita más tiempo que la remoción de DBO5, por eso es la etapa limitante y es la que fija el tamaño del reactor: el volumen se calcula con el HRT mayor.
 print(g2)
+ggsave("problema_21_oxigeno.png", plot = g2, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Distribución de Requerimientos de Oxígeno
 # --------------------------------------------------------------------------
 # - Eje X: el proceso (DBO5 o Nitrificación). Es una categoría, no una cantidad medida, por eso no tiene unidades.
 # - Eje Y: el oxígeno requerido en kg O2/día (kilogramos de oxígeno por día). Es el oxígeno que hay que suministrar con la aireación para oxidar la materia orgánica (DBO5) y para nitrificar el nitrógeno (NTK).
-# - Lo que se aprecia: la barra de DBO5 (unos 758 kg O2/día según el cálculo del código) es mucho más alta que la de nitrificación (unos 138 kg O2/día).
-# - Qué significa: con los datos tal como están escritos en el archivo, la mayor parte del oxígeno se va en oxidar la DBO5 y solo alrededor del 15 % corresponde a la nitrificación. Ojo: el propio archivo marca el dato NTK_in con el comentario '#error', así que este reparto debe revisarse cuando se corrija ese dato de entrada.
+# - Lo que se aprecia: la barra de DBO5 (unos 738 kg O2/día según el cálculo del código) es un poco más alta que la de nitrificación (unos 618 kg O2/día).
+# - Qué significa: con los datos corregidos, el oxígeno se reparte casi a partes iguales: unos 738 kg O2/día para oxidar la DBO5 y unos 618 kg O2/día para nitrificar, alrededor del 46 % del total. La nitrificación ya no es un consumo menor: con un NTK de entrada de 39 mg/L hay mucho nitrógeno que oxidar.
 
 # --------------------------------------------------------------------------
 # Qué aprendimos
 # --------------------------------------------------------------------------
 # - El HRT (tiempo de retención hidráulica, en horas o días) dice cuánto tiempo permanece el agua en el reactor; la etapa que pide más tiempo es la limitante y fija el volumen.
 # - El requerimiento de oxígeno (OUR, en kg O2/día) se calcula por separado para la DBO5 y para la nitrificación, y luego se suma.
-# - El propio archivo marca el dato NTK_in con '#error': los valores escritos en los comentarios (8.2 h, 1190 m³, 1362 kg O2/día) no coinciden con lo que calcula el código con los datos escritos (unas 7.7 h, unos 1128 m³ y unos 896 kg O2/día), y el paso de 9 a 0.39 mg/L es una remoción del 95.7 %, no del 99 %. Conviene revisar ese dato antes de usar el resultado.
+# - El dato de entrada NTK_in es 39 mg/L: con un efluente de 0.39 mg/L la remoción de NTK es del 99.0 %, el factor F_N es 0.064, el HRT de nitrificación es de 8.1 horas, el volumen del reactor es de 1187 m³ y el oxígeno total es de 1355 kg O2/día, con alrededor del 46 % para nitrificación.

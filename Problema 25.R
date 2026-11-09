@@ -94,6 +94,7 @@ g <- ggplot(resultados, aes(x = Etapa)) +
   scale_x_continuous(breaks = 1:nrow(resultados))
 
 print(g)
+ggsave("problema_25_rbc.png", plot = g, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Reducción de DBO5 en Contactor Biológico Rotativo

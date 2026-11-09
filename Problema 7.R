@@ -36,3 +36,10 @@ cat("Caudal máximo por línea: ", Q_max_linea_m3s, "m³/s\n")
 cat("Nivel de agua (D): ", D, "m\n")
 cat("Ancho del canal (W): ", W, "m\n")
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El caudal de diseño se reparte entre las líneas de tratamiento: cada línea lleva la mitad del caudal total.
+# - El nivel de agua en las rejas depende del caudal por línea y el ancho del canal del caudal, la velocidad y la separación entre barrotes.
+# - El coeficiente de seguridad se suma al ancho calculado del canal.

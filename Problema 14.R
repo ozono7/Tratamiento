@@ -49,3 +49,10 @@ cat("2. Verter en un matraz aforado de 500 mL.\n")
 cat("3. Añadir agua destilada hasta la marca de 500 mL.\n")  
 cat("4. Agitar hasta homogeneizar.\n")  
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El producto comercial no es PAC puro: su concentración activa es densidad por riqueza.
+# - La masa de PAC activo necesaria es concentración deseada por volumen a preparar.
+# - El volumen de producto comercial es la masa necesaria entre la concentración activa del producto.

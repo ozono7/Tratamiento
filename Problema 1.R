@@ -39,9 +39,21 @@ moles_N <- moles_NH3  # moles de N
 masa_N <- moles_N * peso_molecular_N  # masa de N en g
 
 # ---------------------- Cálculo del porcentaje de nitrógeno ----------------------
-porcentaje_N <- (masa_N / (volumen_muestra / 1000)) * 100  # %
+# La masa de N calculada está en la alícuota: la alícuota es solo una parte de
+# la dilución, así que la masa de N de la muestra completa es masa_N por el
+# factor de dilución (volumen_dilucion / volumen_alicuota). El porcentaje
+# peso/volumen es masa (g) entre volumen de muestra (mL), por 100.
+masa_N_muestra <- masa_N * (volumen_dilucion / volumen_alicuota)  # g de N en la muestra
+porcentaje_N <- (masa_N_muestra / volumen_muestra) * 100  # % p/v
 
 # ---------------------- Mostrar resultado ----------------------
 cat("\n---- RESULTADOS ----\n")
 cat("Porcentaje de nitrógeno en el agua residual: ", round(porcentaje_N, 2), "%\n")
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El nitrógeno de la muestra se determina por retrovaloración (Kjeldahl): el amoniaco destilado neutraliza parte del ácido y el resto se valora con base.
+# - La alícuota es solo una parte de la dilución: hay que multiplicar por el factor de dilución para referir el resultado a la muestra original.
+# - El porcentaje peso/volumen es masa en gramos entre volumen en mililitros, por 100.

@@ -64,3 +64,10 @@ if (CS <= 1.5) {
   cat("⚠️ CS demasiado alta. Riesgo de arrastre de sólidos.\n")  
 }  
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El tiempo de retención hidráulica es el volumen del sedimentador entre el caudal.
+# - El caudal unitario sobre vertedero (WOR) es el caudal por hora entre el perímetro del vertedero.
+# - La carga superficial es el caudal por hora entre el área: los tres parámetros se comparan con sus límites típicos.

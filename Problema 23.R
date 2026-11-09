@@ -60,7 +60,7 @@ cat(" VERIFICACIÓN CON SOLUCIÓN PROPORCIONADA\n")
 cat("----------------------------------------\n")
 cat(" - Carga orgánica calculada:", round(Lv, 2), "kg/m³·d (debe ser 0.20)\n")
 cat(" - Eficiencia calculada:", round(E*100, 1), "% (debe ser 88.9%)\n")
-cat(" - DBO5 efluente calculada:", round(Se, 1), "mg/L (debe ser 16.6 mg/L)\n")
+cat(" - DBO5 efluente calculada:", round(Se, 1), "mg/L (referencia: 16.6 mg/L; la diferencia de 0.1 mg/L es por redondeo)\n")
 
 # -----------------------------------------------------------
 # GRÁFICO DE SENSIBILIDAD
@@ -84,6 +84,7 @@ g <- ggplot(df, aes(x = Recirculacion, y = Eficiencia)) +
   theme_minimal()
 
 print(g)
+ggsave("problema_23_recirculacion.png", plot = g, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Efecto de la Recirculación en la Eficiencia

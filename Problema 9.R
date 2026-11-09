@@ -38,3 +38,10 @@ cat("Caudal máximo: ", Q_max, "m³/s (", Q_max_Ls, "L/s)\n")
 cat("Caudal medio: ", Q_medio, "m³/s (", Q_medio_Ls, "L/s)\n")
 cat("Caudal mínimo: ", Q_min, "m³/s (", Q_min_Ls, "L/s)\n")
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El caudal en un canal Parshall se calcula con Q = K * H^n, con K y n propios de la garganta (9 pulgadas).
+# - Al medir la altura de agua en tres condiciones se obtienen el caudal máximo, el medio y el mínimo.
+# - Pasar de m3/s a L/s es multiplicar por 1000.

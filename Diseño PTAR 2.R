@@ -74,7 +74,7 @@ calcular_trampa_grasas <- function(Q, concentracion_grasas) {
   ancho <- sqrt(area / 3)
   largo <- 3 * ancho
   
-  # Eficiencia esperada (>90% para Q promedio)
+  # Eficiencia esperada para Q promedio (80 % con 300 mg/L de grasas)
   eficiencia <- 0.95 - (0.0005 * concentracion_grasas)
   
   return(list(
@@ -136,7 +136,7 @@ calcular_sbr <- function(Q, DBO, N_total, ciclos_dia = 6) {
   volumen_por_reactor <- volumen / 2
   
   # Dimensiones para reactor circular:
-  diametro <- round(sqrt(volumen_por_reactor / 4 * 4 / pi), 1)  # Relación h/D = 1
+  diametro <- round((volumen_por_reactor * 4 / pi)^(1/3), 1)  # Relación h/D = 1: V = pi*D^3/4, así que D = (4*V/pi)^(1/3)
   
   # Requerimiento de oxígeno (considerando nitrificación)
   RO <- (1.5 * (DBO / 1000) + 4.6 * (N_total / 1000)) * Q_m3d
@@ -172,7 +172,7 @@ calcular_lodos_lacteos <- function(Q, SST, Grasas, DBO) {
   
   # Digestión anaerobia (alta producción de biogás)
   volumen_digestor <- lodos_totales / 2.5  # 2.5 kgVS/m³/d
-  produccion_biogas <- lodos_totales * 0.8  # m³/d (0.8 m³/kgDQO)
+  produccion_biogas <- lodos_totales * 0.8  # m³/d (0.8 m³/kg lodo)
   
   return(list(
     lodos_primarios = round(lodos_primarios, 2),
@@ -305,7 +305,7 @@ diagrama_ptar_industrial <- grViz("
     node [shape = rectangle, style = filled, fillcolor = lightblue, fontname = Arial, fontsize = 12]
     influente [label = 'Agua Residual Láctea\\nDBO: 1,500 mg/L\\nGrasas: 300 mg/L\\nSST: 800 mg/L']
     neutralizacion [label = 'Neutralización\\nDosificación de cal\\nAjuste a pH 7']
-    trampa_grasas [label = 'Trampa de Grasas\\nRemoción 95% grasas']
+    trampa_grasas [label = 'Trampa de Grasas\\nRemoción 80% grasas']
     daf [label = 'DAF\\nFlotación por Aire\\nRemoción 85% SST']
     sbr [label = 'Reactores SBR (2)\\nCarga: 1.2 kgDBO/m³/d\\nMLSS: 4,000 mg/L']
     filtracion [label = 'Filtración Rápida\\n5 m³/m²/h']
@@ -315,7 +315,7 @@ diagrama_ptar_industrial <- grViz("
     node [shape = rectangle, fillcolor = lightgrey, fontsize = 11]
     lodos_daf [label = 'Lodos Primarios\\n4% sólidos']
     espesador [label = 'Espesador\\n25 kg/m²/d']
-    digestor [label = 'Digestor Anaerobio\\nProducción biogás\\n0.8 m³/kgDQO']
+    digestor [label = 'Digestor Anaerobio\\nProducción biogás\\n0.8 m³/kg lodo']
     deshidratacion [label = 'Centrífuga\\n+ Polímero\\n25% sólidos']
     
     // Flujo principal
@@ -380,6 +380,7 @@ print(data.frame(
 
 # Mostrar gráficos
 print(g_dbo_industrial)
+ggsave("ptar_lactea_dbo.png", plot = g_dbo_industrial, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Evolución de DBO en PTAR Láctea
@@ -389,6 +390,7 @@ print(g_dbo_industrial)
 # - Lo que se aprecia: la DBO cae de 1500 mg/L en la entrada (un agua láctea seis veces más cargada que un agua doméstica típica de 250 mg/L) a 975 mg/L tras el DAF, a unos 48.8 mg/L tras el SBR y a unos 43.9 mg/L tras la filtración, quedando justo por debajo de la línea de 50 mg/L.
 # - Qué significa: el sistema cumple la norma, pero con poco margen: el DAF quita el 35 % de la DBO y el SBR el 95 % de lo que queda, y la filtración solo pule el resultado final. Con un agua de entrada tan cargada, cualquier variación en la operación puede acercar el efluente al límite.
 print(g_grasas_industrial)
+ggsave("ptar_lactea_grasas.png", plot = g_grasas_industrial, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Evolución de Grasas en PTAR Láctea

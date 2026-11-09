@@ -23,8 +23,10 @@ coste_producto <- 150           # €/m³
 masa_PAC_comercial <- densidad * 1000  # 1230 g/L  
 masa_PAC_activo <- masa_PAC_comercial * riqueza  # 369 g/L  
 
-# 2. Masa total de PAC activo requerida por día (convertir mg a g)  
-masa_PAC_dia <- (dosis_optima / 1000) * caudal_agua  # 108,000 g/día  
+# 2. Masa total de PAC activo requerida por día  
+# 1 mg/L = 1 g/m3, así que mg/L por m3/día da g/día directamente:
+# 12 mg/L * 9000 m3/día = 108,000 g/día.
+masa_PAC_dia <- dosis_optima * caudal_agua  # 108,000 g/día  
 
 # 3. Volumen de producto comercial necesario (L/día)  
 vol_PAC_comercial <- masa_PAC_dia / masa_PAC_activo  # 292.68 L/día  
@@ -52,3 +54,10 @@ cat("\nEquivalencias prácticas:\n")
 cat("- Caudal de PAC:", round(vol_PAC_comercial / 24, 2), "L/hora\n")  
 cat("- Coste anual:", round(coste_diario * 365, 2), "€/año\n")  
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - 1 mg/L equivale a 1 g/m3, así que la masa diaria de PAC es dosis por caudal, en g/día.
+# - El volumen de producto comercial es la masa diaria entre la concentración activa (densidad por riqueza).
+# - El coste diario es el volumen en m3 por el precio por m3, y el coste por m3 es el coste diario entre el caudal.

@@ -449,3 +449,10 @@ crear_tabla_potabilizadora(
 
 # Mostrar diagrama de flujo
 print(diagrama_planta)
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - Una potabilizadora trabaja por etapas en serie: pretratamiento, coagulación-floculación, sedimentación, filtración, desinfección y almacenamiento.
+# - Los caudales de diseño salen de la población y la dotación: medio, máximo diario (1.3 veces) y máximo horario (1.8 veces).
+# - Cada unidad se dimensiona con su propio criterio: velocidad en rejas, tiempo de retención en desarenador y mezcla, gradiente de velocidad en floculación, carga superficial en sedimentación y tasa de filtración en filtros.

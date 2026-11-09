@@ -46,7 +46,7 @@ cat("----------------------------------------\n")
 
 # 4. Gráfico  
 library(ggplot2)  
-ggplot(data.frame(Muestra = factor(1:4), CE = conductividad),  
+grafico_conductividad <- ggplot(data.frame(Muestra = factor(1:4), CE = conductividad),  
        aes(x = Muestra, y = CE, fill = clasificacion)) +  
   geom_bar(stat = "identity") +  
   geom_hline(yintercept = c(700, 1500, 3000),  
@@ -59,6 +59,9 @@ ggplot(data.frame(Muestra = factor(1:4), CE = conductividad),
        y = "Conductividad Eléctrica (µS/cm)",  
        fill = "Calidad") +  
   theme_minimal()  
+
+print(grafico_conductividad)
+ggsave("problema_06_conductividad.png", plot = grafico_conductividad, width = 8, height = 5, dpi = 300)
 
 # --------------------------------------------------------------------------
 # Interpretación: Clasificación de Agua de Riego por Conductividad

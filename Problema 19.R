@@ -66,3 +66,10 @@ cat("- La diferencia entre F/M (entrada) y U (consumo) es de",
 cat("- Esto representa una eficiencia de remoción del", 
     round((U/F_M)*100, 1), "%\n")
 
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - La relación F/M es el alimento de entrada por microorganismo y por día: S0 / (theta * X).
+# - La tasa de utilización U es el sustrato removido por microorganismo y por día: (S0 - S) / (theta * X).
+# - La eficiencia de remoción es U / F/M: aquí 93.3 %, con F/M y U dentro de sus rangos típicos.
