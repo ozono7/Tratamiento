@@ -1,11 +1,17 @@
-# =============================================
+# ==========================================================================
 # DISEÑO DE PLANTA POTABILIZADORA DE AGUA
-# =============================================
-# Sistema convencional para 20,000 habitantes
-# Proceso: Coagulación-Floculación-Sedimentación-Filtración-Desinfección
-# =============================================
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Diseño de una planta potabilizadora de agua.
+# ==========================================================================
 
-# -----------------------------------
+
 # 1. INSTALACIÓN DE PAQUETES
 # -----------------------------------
 if (!require("tidyverse")) install.packages("tidyverse")

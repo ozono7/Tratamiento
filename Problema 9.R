@@ -1,10 +1,18 @@
+# ==========================================================================
 # Problema 6: Cálculo de caudales en un canal Parshall de 9 pulgadas
-# Autor: José Juan Torres Martínez
-# Doctorado en Ciencias en Bioprocesos
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
 # Fecha: 2023-10-30
+#
+# Descripción: Cálculo de caudales en un canal Parshall de 9 pulgadas.
+# ==========================================================================
 
-# ---------------------- Definir constantes y variables ----------------------
+
 K <- 0.535  # Coeficiente K para un canal Parshall de 9 pulgadas
 n <- 1.530  # Exponente n para un canal Parshall de 9 pulgadas
 

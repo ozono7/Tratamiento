@@ -1,11 +1,16 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Análisis de Conductividad Eléctrica en Agua de Riego
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Evaluar aptitud agrícola según normativa FAO
+# ==========================================================================
 
-# Tema: Análisis de Conductividad Eléctrica en Agua de Riego  
-# Objetivo: Evaluar aptitud agrícola según normativa FAO  
 
 # Datos de conductividad (µS/cm)  
 conductividad <- c(850, 1200, 650, 1500)  

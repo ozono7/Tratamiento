@@ -1,10 +1,16 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Laboratorio de Tratamiento de Aguas  
-# -----------------------------------------------------------
+# ==========================================================================
+# Análisis de Sólidos Totales en Aguas Residuales
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Calcular ST, SST y SDT
+# ==========================================================================
 
-# Tema: Análisis de Sólidos Totales en Aguas Residuales  
-# Objetivo: Calcular ST, SST y SDT  
 
 # Datos del problema  
 vol_muestra <- 250                # Volumen de muestra en mL  

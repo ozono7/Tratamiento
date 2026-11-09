@@ -1,13 +1,17 @@
-# ============================================
+# ==========================================================================
 # DISEÑO DE PTAR PARA INDUSTRIA LÁCTEA
-# ============================================
-# Sistema especializado para tratamiento de:
-# - Alta carga orgánica (DBO 1,500 mg/L)
-# - Grasas y aceites (300 mg/L)
-# - Sólidos suspendidos (800 mg/L)
-# ============================================
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Diseño de una planta de tratamiento de aguas residuales (PTAR) para una industria láctea.
+# ==========================================================================
 
-# -----------------------------------
+
 # 1. INSTALACIÓN DE PAQUETES
 # -----------------------------------
 if (!require("tidyverse")) install.packages("tidyverse")

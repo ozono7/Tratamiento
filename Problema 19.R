@@ -1,11 +1,16 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Cálculo de la relación F/M y tasa de utilización U
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Determinar parámetros clave de operación en lodos activados
+# ==========================================================================
 
-# Tema: Cálculo de la relación F/M y tasa de utilización U  
-# Objetivos: Determinar parámetros clave de operación en lodos activados  
 
 # Datos de entrada
 S0 <- 300       # DBO5 influente (mg/L)

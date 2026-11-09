@@ -1,10 +1,18 @@
+# ==========================================================================
 # Problema 3: Cálculo del coste total del tratamiento adicional de agua
-# Autor: José Juan Torres Martínez
-# Doctorado en Ciencias en Bioprocesos
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
 # Fecha: 2023-10-30
+#
+# Descripción: Cálculo del coste total del tratamiento adicional de agua.
+# ==========================================================================
 
-# ---------------------- Definir constantes y variables ----------------------
+
 concentracion_glucosa <- 2.6e-3  # mol/L de glucosa
 relacion_O2_glucosa <- 6         # moles de O₂ por mol de glucosa
 peso_molecular_O2 <- 32          # g/mol de O₂

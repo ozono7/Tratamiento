@@ -1,11 +1,16 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Preparación de Disolución de Policloruro de Aluminio
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Calcular volumen de producto comercial necesario
+# ==========================================================================
 
-# Tema: Preparación de Disolución de Policloruro de Aluminio  
-# Objetivo: Calcular volumen de producto comercial necesario  
 
 # Datos de entrada  
 densidad <- 1.15                # g/cm³  

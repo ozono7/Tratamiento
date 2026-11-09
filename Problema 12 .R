@@ -1,11 +1,16 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Diseño de Sedimentador Circular Primario
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Calcular TRH, WOR y CS
+# ==========================================================================
 
-# Tema: Diseño de Sedimentador Circular Primario  
-# Objetivo: Calcular TRH, WOR y CS  
 
 # Datos de entrada  
 D <- 20                          # Diámetro (m)  

@@ -1,10 +1,18 @@
+# ==========================================================================
 # Problema 2: Determinación de la dureza total, magnésica y cálcica del agua
-# Autor: José Juan Torres Martínez
-# Doctorado en Ciencias en Bioprocesos
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
 # Fecha: 2023-10-30
+#
+# Descripción: Determinación de la dureza total, magnésica y cálcica del agua.
+# ==========================================================================
 
-# ---------------------- Definir constantes y variables ----------------------
+
 volumen_muestra <- 10.0        # Volumen de la muestra en mL
 concentracion_AEDT <- 0.0125   # Concentración de AEDT en M
 volumen_AEDT_total <- 20.0     # Volumen de AEDT para la dureza total en mL

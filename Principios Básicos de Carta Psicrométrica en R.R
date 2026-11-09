@@ -1,10 +1,16 @@
+# ==========================================================================
 # Principios Básicos de Carta Psicrométrica en R
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Principios básicos de la carta psicrométrica en R.
+# ==========================================================================
 
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez
-# Doctorado en Ciencias en Bioprocesos
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
-# -----------------------------------------------------------
 
 # 1. Cálculo de Humedad Relativa
 # Fórmula: HR = (Presión de vapor real / Presión de vapor de saturación) * 100

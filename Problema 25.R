@@ -1,13 +1,17 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Cálculo de etapas en contactor biológico rotativo
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Determinar número de etapas para reducir DBO5 de 60 a 20 mg/L
+# ==========================================================================
 
-# Tema: Cálculo de etapas en contactor biológico rotativo  
-# Objetivo: Determinar número de etapas para reducir DBO5 de 60 a 20 mg/L  
 
-# -----------------------------------------------------------
 # DATOS DE ENTRADA
 # -----------------------------------------------------------
 S0 <- 60                  # DBO5 inicial (mg/L)

@@ -1,11 +1,16 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Cálculo de Velocidad Ascensional en Decantador Circular
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Determinar Vₐ para evaluar eficiencia
+# ==========================================================================
 
-# Tema: Cálculo de Velocidad Ascensional en Decantador Circular  
-# Objetivo: Determinar Vₐ para evaluar eficiencia  
 
 # Datos de entrada  
 D <- 25                          # Diámetro (m)  

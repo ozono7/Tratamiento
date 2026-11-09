@@ -1,10 +1,18 @@
+# ==========================================================================
 # Problema 1: Determinación del porcentaje de nitrógeno en un agua residual
-# Autor: José Juan Torres Martínez
-# Doctorado en Ciencias en Bioprocesos
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
 # Fecha: 2023-10-30
+#
+# Descripción: Determinación del porcentaje de nitrógeno en un agua residual.
+# ==========================================================================
 
-# ---------------------- Definir constantes y variables ----------------------
+
 volumen_muestra <- 50          # Volumen inicial de la muestra en mL
 volumen_dilucion <- 1000       # Volumen de dilución en mL
 volumen_alicuota <- 100        # Volumen de la alícuota en mL

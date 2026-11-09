@@ -1,11 +1,16 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Cálculo de Dosis de Coagulante en Tratamiento de Agua
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Determinar dosis práctica en g/m³
+# ==========================================================================
 
-# Tema: Cálculo de Dosis de Coagulante en Tratamiento de Agua  
-# Objetivo: Determinar dosis práctica en g/m³  
 
 # Datos de entrada  
 densidad <- 1.335              # g/cm³  

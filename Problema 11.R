@@ -1,11 +1,16 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Diseño de Decantador Primario Rectangular
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Calcular dimensiones y tiempo de retención
+# ==========================================================================
 
-# Tema: Diseño de Decantador Primario Rectangular  
-# Objetivo: Calcular dimensiones y tiempo de retención  
 
 # Datos de entrada  
 Q <- 35000                     # Caudal medio (m³/d)  

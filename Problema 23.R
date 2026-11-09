@@ -1,13 +1,17 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
+# ==========================================================================
+# Cálculo de eficiencia en filtro percolador usando ecuaciones NRC
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Determinar la DBO5 del efluente para un filtro de baja carga
+# ==========================================================================
 
-# Tema: Cálculo de eficiencia en filtro percolador usando ecuaciones NRC  
-# Objetivo: Determinar la DBO5 del efluente para un filtro de baja carga  
 
-# -----------------------------------------------------------
 # DATOS DE ENTRADA
 # -----------------------------------------------------------
 Q <- 2000                # Caudal (m³/día)

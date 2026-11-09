@@ -1,10 +1,15 @@
-# -----------------------------------------------------------
-# Autor: José Juan Torres Martínez  
-# Doctorado en Ciencias en Bioprocesos  
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática  
-# -----------------------------------------------------------
-# Tema: Diseño de sistema de lodos activos con nitrificación  
-# Objetivo: Calcular parámetros clave según especificaciones 
+# ==========================================================================
+# Diseño de sistema de lodos activos con nitrificación
+# ==========================================================================
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
+# Material académico para estudiantes
+#
+# Descripción: Calcular parámetros clave según especificaciones
+# ==========================================================================
 
 
 # DATOS DE ENTRADA
