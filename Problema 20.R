@@ -1,14 +1,16 @@
 # ==========================================================================
 # PROBLEMA: OPTIMIZACIÓN DE PLANTA DE LODOS ACTIVADOS
 # ==========================================================================
-# Autor: José Juan Torres Martínez
-# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
-# Doctorado en Ciencias en Bioprocesos
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
 # Material académico para estudiantes
 #
 # Descripción: OPTIMIZACIÓN DE PLANTA DE LODOS ACTIVADOS
 # ==========================================================================
+
 
 library(ggplot2)  # Para gráficos profesionales
 library(scales)   # Para formato de ejes

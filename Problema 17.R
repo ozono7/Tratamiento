@@ -1,14 +1,16 @@
 # ==========================================================================
 # Cálculo de HRT y Edad del Lodo en Lodos Activados
 # ==========================================================================
-# Autor: José Juan Torres Martínez
-# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
-# Doctorado en Ciencias en Bioprocesos
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
 # Material académico para estudiantes
 #
 # Descripción: Determinar HRT y θ₀
 # ==========================================================================
+
 
 # Datos de entrada  
 Q <- 4000                    # Caudal (m³/d)  

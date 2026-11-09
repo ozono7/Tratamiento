@@ -1,14 +1,16 @@
 # ==========================================================================
 # Diseño de sistema de lodos activos con nitrificación
 # ==========================================================================
-# Autor: José Juan Torres Martínez
-# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
-# Doctorado en Ciencias en Bioprocesos
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
 # Material académico para estudiantes
 #
 # Descripción: Calcular parámetros clave según especificaciones
 # ==========================================================================
+
 
 # DATOS DE ENTRADA
 # -----------------------------------------------------------

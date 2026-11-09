@@ -1,15 +1,17 @@
 # ==========================================================================
 # Problema 4: Dimensiones de las rejas en la etapa de desbaste
 # ==========================================================================
-# Autor: José Juan Torres Martínez
-# Institución: Universidad Autónoma de San Luis Potosí (UASLP)
-# Doctorado en Ciencias en Bioprocesos
-# Laboratorio de Biotecnología Molecular de Células Vegetales y Bioinformática
+# Autor: Dr. José Juan Torres Martínez
+# Docente de Ciencias Químicas
+# Universidad Autónoma de San Luis Potosí (UASLP)
+# México
+#
 # Material académico para estudiantes
 # Fecha: 2023-10-30
 #
 # Descripción: Dimensiones de las rejas en la etapa de desbaste.
 # ==========================================================================
+
 
 Q_max_total <- 1.130  # Caudal máximo total en m³/h
 num_lineas <- 2        # Número de líneas de tratamiento
