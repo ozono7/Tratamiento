@@ -10,7 +10,6 @@
 # Fecha: 2023-10-30
 #
 # Descripción: Dimensiones de las rejas en la etapa de desbaste.
-# Nota: el título lleva el número del archivo (7). En el problemario original este ejercicio era el número 4; aquí se cita por su número de archivo para que título y archivo coincidan.
 # ==========================================================================
 
 
