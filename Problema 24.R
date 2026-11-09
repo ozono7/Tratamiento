@@ -78,3 +78,17 @@ g <- ggplot(df, aes(x = Profundidad, y = DBO5_efluente)) +
 
 print(g)
 
+# --------------------------------------------------------------------------
+# Interpretación: Efecto de la Profundidad del Lecho en la DBO5 Efluente
+# --------------------------------------------------------------------------
+# - Eje X: la profundidad del lecho filtrante en m (metros), de 1 a 3 m. La línea roja discontinua marca la profundidad de diseño, 2.0 m.
+# - Eje Y: la DBO5 del efluente (Se) en mg/L (miligramos por litro). Es la materia orgánica que queda en el agua después de pasar por el filtro.
+# - Lo que se aprecia: la curva baja de forma pronunciada al aumentar la profundidad y luego se aplana: con la profundidad de diseño de 2.0 m la DBO5 efluente es de unos 15.2 mg/L, frente a 150 mg/L de entrada.
+# - Qué significa: un lecho más profundo limpia más el agua, pero con rendimientos decrecientes: pasar de 2 a 3 m de profundidad baja poco la DBO5 efluente, así que la profundidad de diseño equilibra eficiencia y coste de construcción.
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - En el modelo de Schulze, la DBO5 efluente baja de forma exponencial al aumentar la profundidad del lecho.
+# - La carga hidráulica (Lh) se expresa en m³/(m²·día) y resume cuánto caudal recibe cada metro cuadrado de filtro.
+# - Con la profundidad de diseño (2.0 m) el filtro logra una remoción cercana al 90 %, de 150 a unos 15 mg/L.

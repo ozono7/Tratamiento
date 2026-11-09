@@ -85,3 +85,17 @@ g <- ggplot(df, aes(x = Recirculacion, y = Eficiencia)) +
 
 print(g)
 
+# --------------------------------------------------------------------------
+# Interpretación: Efecto de la Recirculación en la Eficiencia
+# --------------------------------------------------------------------------
+# - Eje X: el factor de recirculación (F), de 1 a 4. F es adimensional: es un cociente entre el caudal recirculado y el caudal de entrada, por eso no tiene unidades. La línea roja discontinua marca el valor de diseño, F = 2.5.
+# - Eje Y: la eficiencia del filtro en % (porcentaje de la DBO5 de entrada que el filtro logra remover).
+# - Lo que se aprecia: la eficiencia sube al aumentar la recirculación, rápido al principio y cada vez más despacio: con F = 2.5 la eficiencia es del 88.9 % y al seguir subiendo F la curva se aplana.
+# - Qué significa: recircular más agua mejora el tratamiento, pero cada unidad extra de recirculación aporta cada vez menos: más allá de F = 3 la ganancia es pequeña y ya no compensa el coste de bombear más agua.
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El factor de recirculación F es adimensional porque es un cociente entre dos caudales.
+# - La carga orgánica volumétrica (Lv) se expresa en kg DBO5/(m³·día) y es el dato que alimenta el modelo NRC.
+# - La eficiencia de un filtro percolador crece con la recirculación, pero con rendimientos decrecientes: la curva se aplana.

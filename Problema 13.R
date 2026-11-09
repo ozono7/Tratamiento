@@ -59,3 +59,17 @@ ggplot(data.frame(Caudal = caudal_range, Velocidad = va_range),
        y = "Velocidad Ascensional (mm/s)") +  
   theme_minimal()  
 
+# --------------------------------------------------------------------------
+# Interpretación: Relación Caudal-Velocidad Ascensional
+# --------------------------------------------------------------------------
+# - Eje X: el caudal de entrada en m³/h (metros cúbicos por hora), de 1000 a 2000 m³/h.
+# - Eje Y: la velocidad ascensional en mm/s (milímetros por segundo). Es la velocidad con la que el agua sube dentro del decantador, calculada como caudal entre área superficial (Va = Q / A). La línea roja discontinua marca 0.7 mm/s, el máximo típico recomendado para decantadores primarios.
+# - Lo que se aprecia: la velocidad sube en línea recta al aumentar el caudal y cruza la línea roja de 0.7 mm/s alrededor de un caudal de 1240 m³/h. El punto de diseño del problema (Q = 1400 m³/h, D = 25 m) queda por encima de la línea, en unos 0.79 mm/s.
+# - Qué significa: con el caudal de diseño actual el decantador trabaja por encima del límite recomendado y hay riesgo de arrastre de sólidos hacia el efluente; para cumplir habría que bajar el caudal o aumentar el área, es decir, construir un decantador de mayor diámetro.
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - La velocidad ascensional es el caudal dividido entre el área superficial (Va = Q / A) y se expresa en m/h o en mm/s.
+# - El valor típico de referencia para decantadores primarios es 0.7 mm/s o menos.
+# - Un gráfico caudal-velocidad muestra de inmediato hasta qué caudal el diseño sigue siendo seguro.

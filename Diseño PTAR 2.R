@@ -380,8 +380,31 @@ print(data.frame(
 
 # Mostrar gráficos
 print(g_dbo_industrial)
+
+# --------------------------------------------------------------------------
+# Interpretación: Evolución de DBO en PTAR Láctea
+# --------------------------------------------------------------------------
+# - Eje X: la etapa del tratamiento (Entrada, DAF, SBR, Filtración, Límite). Es una categoría, no una cantidad medida, por eso no tiene unidades. Ojo: 'Límite' no es una etapa del tratamiento, es el valor normativo de referencia dibujado como un punto más para comparar. DAF es la flotación por aire disuelto y SBR son los reactores biológicos por lotes.
+# - Eje Y: la DBO (demanda bioquímica de oxígeno) en mg/L (miligramos por litro). Mide la materia orgánica biodegradable del agua: cuanto más alta, más contaminada. La línea roja discontinua marca el límite normativo de 50 mg/L.
+# - Lo que se aprecia: la DBO cae de 1500 mg/L en la entrada (un agua láctea seis veces más cargada que un agua doméstica típica de 250 mg/L) a 975 mg/L tras el DAF, a unos 48.8 mg/L tras el SBR y a unos 43.9 mg/L tras la filtración, quedando justo por debajo de la línea de 50 mg/L.
+# - Qué significa: el sistema cumple la norma, pero con poco margen: el DAF quita el 35 % de la DBO y el SBR el 95 % de lo que queda, y la filtración solo pule el resultado final. Con un agua de entrada tan cargada, cualquier variación en la operación puede acercar el efluente al límite.
 print(g_grasas_industrial)
+
+# --------------------------------------------------------------------------
+# Interpretación: Evolución de Grasas en PTAR Láctea
+# --------------------------------------------------------------------------
+# - Eje X: la etapa del tratamiento (Entrada, DAF, SBR, Filtración, Límite). Es una categoría, no una cantidad medida, por eso no tiene unidades. Ojo: 'Límite' no es una etapa del tratamiento, es el valor normativo de referencia dibujado como un punto más para comparar.
+# - Eje Y: las grasas y aceites en mg/L (miligramos por litro). La línea discontinua marca el límite normativo de 10 mg/L.
+# - Lo que se aprecia: las grasas caen de 300 mg/L en la entrada a 15 mg/L tras el DAF, a 0.3 mg/L tras el SBR y a unos 0.27 mg/L tras la filtración, quedando muy por debajo de la línea de 10 mg/L.
+# - Qué significa: la trampa de grasas y el DAF hacen casi todo el trabajo con las grasas (una remoción del 95 % antes del tratamiento biológico): quitar las grasas al inicio protege a las bacterias del SBR, que no trabajan bien con grasa.
 
 # Mostrar diagrama de flujo
 print(diagrama_ptar_industrial)
 
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El agua residual láctea es mucho más cargada que la doméstica: 1500 mg/L de DBO frente a unos 250 mg/L, además de 300 mg/L de grasas y pH ácido (5.0), por eso necesita neutralización y trampa de grasas antes del tratamiento biológico.
+# - Las grasas se eliminan sobre todo al inicio (trampa de grasas y DAF, 95 %) y la DBO sobre todo en el SBR (95 % de lo que queda).
+# - Los límites normativos del efluente en este diseño son 50 mg/L de DBO, 30 mg/L de SST y 10 mg/L de grasas.
+# - Un efluente que cumple con poco margen, como la DBO final de unos 44 mg/L frente al límite de 50, exige operar la planta con cuidado y vigilar la entrada.

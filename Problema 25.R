@@ -95,3 +95,17 @@ g <- ggplot(resultados, aes(x = Etapa)) +
 
 print(g)
 
+# --------------------------------------------------------------------------
+# Interpretación: Reducción de DBO5 en Contactor Biológico Rotativo
+# --------------------------------------------------------------------------
+# - Eje X: el número de etapa (1, 2, 3, ...). Es un conteo, por eso es adimensional y no tiene unidades.
+# - Eje Y: la DBO5 en mg/L (miligramos por litro). Hay dos líneas: la azul es la DBO5 que entra a cada etapa y la verde es la DBO5 que sale de esa etapa. La línea roja discontinua marca el objetivo, 20 mg/L.
+# - Lo que se aprecia: las dos líneas bajan etapa tras etapa y la caída más grande ocurre en la primera (de 60 a unos 42.5 mg/L); después cada etapa quita cada vez menos. La línea verde cruza el objetivo de 20 mg/L en la quinta etapa, con una salida de unos 18.2 mg/L.
+# - Qué significa: se necesitan 5 etapas para pasar de 60 a menos de 20 mg/L, y las primeras etapas hacen la mayor parte del trabajo: añadir etapas más allá de la quinta aportaría muy poco.
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - Un contactor biológico rotativo trabaja por etapas en serie: la salida de una etapa es la entrada de la siguiente.
+# - La relación área/caudal (A/Q) se expresa en d/m (días por metro) y es el parámetro que alimenta el modelo de Optiken.
+# - Cada etapa remueve menos que la anterior: la caída más grande ocurre en la primera etapa, cuando la DBO5 es más alta.

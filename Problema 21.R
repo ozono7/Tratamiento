@@ -113,5 +113,27 @@ g2 <- ggplot(datos_grafico, aes(x = Proceso, y = Oxigeno_kg, fill = Proceso)) +
 
 # Visualizar gráficos
 print(g1)
+
+# --------------------------------------------------------------------------
+# Interpretación: Comparación de Tiempos de Retención
+# --------------------------------------------------------------------------
+# - Eje X: el proceso (DBO5 o Nitrificación). Es una categoría, no una cantidad medida, por eso no tiene unidades.
+# - Eje Y: el tiempo de retención hidráulica (HRT) en horas. El HRT es el tiempo promedio que el agua permanece dentro del reactor.
+# - Lo que se aprecia: la barra de nitrificación (unas 7.7 horas según el cálculo del código) es un poco más alta que la de DBO5 (7.2 horas).
+# - Qué significa: la nitrificación necesita más tiempo que la remoción de DBO5, por eso es la etapa limitante y es la que fija el tamaño del reactor: el volumen se calcula con el HRT mayor.
 print(g2)
 
+# --------------------------------------------------------------------------
+# Interpretación: Distribución de Requerimientos de Oxígeno
+# --------------------------------------------------------------------------
+# - Eje X: el proceso (DBO5 o Nitrificación). Es una categoría, no una cantidad medida, por eso no tiene unidades.
+# - Eje Y: el oxígeno requerido en kg O2/día (kilogramos de oxígeno por día). Es el oxígeno que hay que suministrar con la aireación para oxidar la materia orgánica (DBO5) y para nitrificar el nitrógeno (NTK).
+# - Lo que se aprecia: la barra de DBO5 (unos 758 kg O2/día según el cálculo del código) es mucho más alta que la de nitrificación (unos 138 kg O2/día).
+# - Qué significa: con los datos tal como están escritos en el archivo, la mayor parte del oxígeno se va en oxidar la DBO5 y solo alrededor del 15 % corresponde a la nitrificación. Ojo: el propio archivo marca el dato NTK_in con el comentario '#error', así que este reparto debe revisarse cuando se corrija ese dato de entrada.
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El HRT (tiempo de retención hidráulica, en horas o días) dice cuánto tiempo permanece el agua en el reactor; la etapa que pide más tiempo es la limitante y fija el volumen.
+# - El requerimiento de oxígeno (OUR, en kg O2/día) se calcula por separado para la DBO5 y para la nitrificación, y luego se suma.
+# - El propio archivo marca el dato NTK_in con '#error': los valores escritos en los comentarios (8.2 h, 1190 m³, 1362 kg O2/día) no coinciden con lo que calcula el código con los datos escritos (unas 7.7 h, unos 1128 m³ y unos 896 kg O2/día), y el paso de 9 a 0.39 mg/L es una remoción del 95.7 %, no del 99 %. Conviene revisar ese dato antes de usar el resultado.

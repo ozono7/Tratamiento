@@ -43,3 +43,17 @@ barplot(turbidez, names.arg = c("Réplica 1", "Réplica 2", "Réplica 3"),
 abline(h = 1.0, col = "red", lty = 2, lwd = 2)  
 text(x = 1:3, y = turbidez + 0.05, labels = turbidez)  
 
+# --------------------------------------------------------------------------
+# Interpretación: Mediciones de Turbidez
+# --------------------------------------------------------------------------
+# - Eje X: las tres réplicas de la muestra (Réplica 1, Réplica 2 y Réplica 3). Es una categoría, no una cantidad medida, por eso no tiene unidades.
+# - Eje Y: la turbidez en NTU (unidades nefelométricas de turbidez). La línea roja discontinua marca el límite de la OMS de 1.0 NTU y los números escritos sobre cada barra son el valor medido en esa réplica.
+# - Lo que se aprecia: las tres barras están muy juntas, entre 0.85 y 0.92 NTU, y las tres quedan por debajo de la línea roja de 1.0 NTU.
+# - Qué significa: el agua cumple el límite de la OMS (menos de 1.0 NTU) y las tres mediciones son muy parecidas entre sí, lo que indica buena precisión: el coeficiente de variación que calcula el script queda por debajo del 5 % aceptado.
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - La turbidez se mide en NTU y el límite de la OMS para agua potable es 1.0 NTU.
+# - Repetir la medición (réplicas) permite comprobar la precisión: si los valores son parecidos, la medición es confiable.
+# - Un gráfico de barras con una línea de referencia deja ver de un vistazo si se cumple o no la norma.

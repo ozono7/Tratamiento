@@ -139,8 +139,33 @@ cat(" INFORME TÉCNICO: OPTIMIZACIÓN DE LODOS ACTIVADOS\n")
 cat("========================================\n")
 
 print(g1)
+
+# --------------------------------------------------------------------------
+# Interpretación: Optimización: Edad del lodo vs Biomasa y Costos
+# --------------------------------------------------------------------------
+# - Eje X: la edad del lodo (θc, theta_c) en días, de 3 a 10 días. Es el tiempo promedio que los microorganismos permanecen en el sistema.
+# - Eje Y: dos cosas a la vez en un mismo eje, por eso hay que leerlo con cuidado: la biomasa X en mg/L (línea azul, miligramos de sólidos suspendidos volátiles por litro) y el coste de aireación multiplicado por 10 000 (línea roja). Ese factor 10 000 solo sirve para que ambas curvas quepan en el mismo gráfico: los números que lee la línea roja en este eje NO son euros ni mg/L, son un valor relativo escalado para comparar. El coste del modelo es un cálculo simplificado del script y su unidad final no está especificada en el archivo.
+# - Lo que se aprecia: al aumentar la edad del lodo, tanto la biomasa como el coste suben: la biomasa crece rápido al principio y más despacio después, y el coste sigue esa misma tendencia porque depende de la biomasa.
+# - Qué significa: envejecer el lodo acumula más biomasa en el reactor, pero cuesta más aireación; el punto de trabajo debe equilibrar un tratamiento suficiente con un coste razonable. La lectura del coste en este gráfico es solo comparativa, por el factor de escala de 10 000.
 print(g2)
+
+# --------------------------------------------------------------------------
+# Interpretación: Control de Carga Orgánica
+# --------------------------------------------------------------------------
+# - Eje X: la edad del lodo (θc, theta_c) en días, de 3 a 10 días.
+# - Eje Y: una tasa en d⁻¹ (por día, es decir, 1/día). Las dos curvas comparten la misma unidad: F/M es la relación alimento/microorganismos (kg de DBO5 por kg de biomasa y por día) y U es la tasa de utilización del sustrato (kg de DBO5 removida por kg de biomasa y por día). La línea gris discontinua marca 0.3 d⁻¹ como valor de referencia operativo.
+# - Lo que se aprecia: al aumentar la edad del lodo, tanto F/M como U bajan: con el lodo más viejo hay menos alimento disponible por cada microorganismo. La curva de F/M se mueve dentro de la zona cercana a la referencia de 0.3 d⁻¹.
+# - Qué significa: con el lodo más viejo el sistema trabaja con menos carga por microorganismo, lo que suele dar un efluente más limpio; el valor de referencia ayuda a ver si F/M está dentro del rango óptimo de 0.2 a 0.6 d⁻¹ que usa el diagnóstico del script.
 generar_recomendaciones(parametros, datos)
+
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - La edad del lodo (θc, en días) controla a la vez la biomasa del reactor y el coste de aireación: más edad, más biomasa y más coste.
+# - La relación F/M y la tasa de utilización U se expresan en d⁻¹ (por día) y su rango óptimo orienta la operación de la planta.
+# - La eficiencia de remoción de DBO5 se juzga contra la meta del 90 %: por debajo de ese valor hay que actuar sobre la edad del lodo o sobre las purgas.
+# - Un gráfico con dos variables en un mismo eje exige avisar cuando una de ellas está escalada, como el coste multiplicado por 10 000 en el primer gráfico.
 
 cat("\n----------------------------------------\n")
 cat("Resumen de parámetros actuales:\n")

@@ -118,3 +118,17 @@ g <- ggplot(df, aes(x = Proceso, y = Horas, fill = Proceso)) +
 print(g)
 
                 
+# --------------------------------------------------------------------------
+# Interpretación: Comparación de Tiempos de Retención Hidráulica
+# --------------------------------------------------------------------------
+# - Eje X: el proceso (DBO5 o Nitrificación). Es una categoría, no una cantidad medida, por eso no tiene unidades.
+# - Eje Y: el tiempo de retención hidráulica (HRT) en horas. El HRT es el tiempo promedio que el agua permanece dentro del reactor. La línea roja discontinua marca 6 horas, el valor de referencia de la solución proporcionada.
+# - Lo que se aprecia: la barra de nitrificación (unas 5.7 horas según el cálculo del código) es más alta que la de DBO5 (4.5 horas), y las dos quedan cerca de la línea de referencia de 6 horas.
+# - Qué significa: la nitrificación es la etapa limitante y es la que fija el HRT adoptado (unas 5.7 horas); el resultado queda muy cerca del valor de referencia de 6 horas, así que el diseño se verifica contra la solución proporcionada.
+
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - El HRT (tiempo de retención hidráulica, en horas) dice cuánto tiempo permanece el agua en el reactor; la etapa que pide más tiempo es la limitante.
+# - El oxígeno se calcula por separado para la DBO5 y para la nitrificación, y al total se le aplica un factor de seguridad (2.5 en este problema).
+# - Comparar el resultado con una solución de referencia (la línea de 6 horas) es una forma rápida de verificar un diseño.

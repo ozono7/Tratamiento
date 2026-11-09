@@ -510,8 +510,32 @@ print(data.frame(
 # Mostrar gráficos
 cat("\n=== GRÁFICOS DE RESULTADOS ===\n")
 print(g_dbo)
+
+# --------------------------------------------------------------------------
+# Interpretación: Evolución de DBO a través del tratamiento
+# --------------------------------------------------------------------------
+# - Eje X: la etapa del tratamiento (Entrada, Primario, Secundario, Límite). Es una categoría, no una cantidad medida, por eso no tiene unidades. Ojo: 'Límite' no es una etapa del tratamiento, es el valor normativo de referencia dibujado como un cuarto punto para comparar.
+# - Eje Y: la DBO (demanda bioquímica de oxígeno) en mg/L (miligramos por litro). Mide la materia orgánica biodegradable del agua: cuanto más alta, más contaminada. La línea roja discontinua marca el límite normativo de 30 mg/L.
+# - Lo que se aprecia: la DBO cae de 250 mg/L en la entrada a 162.5 mg/L tras el tratamiento primario y a unos 8.1 mg/L tras el secundario, quedando muy por debajo de la línea de 30 mg/L.
+# - Qué significa: el tren de tratamiento funciona: el primario quita el 35 % de la DBO y el secundario el 95 % de lo que queda, así que el efluente final cumple con holgura el límite de 30 mg/L.
 print(g_sst)
+
+# --------------------------------------------------------------------------
+# Interpretación: Evolución de SST a través del tratamiento
+# --------------------------------------------------------------------------
+# - Eje X: la etapa del tratamiento (Entrada, Primario, Secundario, Límite). Es una categoría, no una cantidad medida, por eso no tiene unidades. Ojo: 'Límite' no es una etapa del tratamiento, es el valor normativo de referencia dibujado como un cuarto punto para comparar.
+# - Eje Y: los SST (sólidos suspendidos totales) en mg/L (miligramos por litro). Son las partículas sólidas que flotan en el agua y la enturbian. La línea azul discontinua marca el límite normativo de 30 mg/L.
+# - Lo que se aprecia: los SST caen de 150 mg/L en la entrada a 60 mg/L tras el primario y a 6 mg/L tras el secundario, quedando muy por debajo de la línea de 30 mg/L.
+# - Qué significa: la sedimentación primaria quita el 60 % de los sólidos y el tratamiento secundario el 90 % de los que quedan: el efluente final cumple con holgura el límite de 30 mg/L.
 print(g_coliformes)
+
+# --------------------------------------------------------------------------
+# Interpretación: Evolución de Coliformes Fecales
+# --------------------------------------------------------------------------
+# - Eje X: la etapa del tratamiento (Entrada, Primario, Secundario, Límite). Es una categoría, no una cantidad medida, por eso no tiene unidades. Ojo: 'Límite' no es una etapa del tratamiento, es el valor normativo de referencia dibujado como un cuarto punto para comparar.
+# - Eje Y: los coliformes fecales en MPN/100mL (número más probable de bacterias por cada 100 mililitros de agua), en escala logarítmica base 10. En una escala logarítmica, distancias iguales en el eje significan multiplicar por 10, no sumar una cantidad fija: por eso una caída de 1 000 000 a 100 000 se ve igual que una de 100 000 a 10 000. La línea verde discontinua marca el límite normativo de 1 000 MPN/100mL.
+# - Lo que se aprecia: los coliformes apenas bajan en el primario (de 1 000 000 a 800 000 MPN/100mL, solo un 20 %) y caen de forma muy pronunciada en el secundario (hasta unos 800 MPN/100mL, una remoción del 99.9 %), quedando por debajo del límite de 1 000 MPN/100mL.
+# - Qué significa: la sedimentación primaria casi no elimina bacterias: es el tratamiento secundario y la desinfección los que logran la remoción de patógenos. Sin la escala logarítmica, la caída final ni siquiera se vería en el gráfico.
 
 # Mostrar diagrama de flujo
 cat("\n=== DIAGRAMA DE FLUJO DE LA PTAR ===\n")
@@ -595,3 +619,10 @@ crear_tabla_diseño(data.frame(
             paste(cloracion$tiempo_contacto, "min"), paste(cloracion$consumo_cloro, "kg/d"))
 ), "Diseño de Sistema de Cloración")
 
+# --------------------------------------------------------------------------
+# Qué aprendimos
+# --------------------------------------------------------------------------
+# - Una PTAR trabaja por etapas en serie: cada etapa quita una parte de la contaminación y el efluente final es el resultado acumulado.
+# - Los límites normativos del efluente en este diseño son 30 mg/L de DBO, 30 mg/L de SST y 1 000 MPN/100mL de coliformes fecales.
+# - Cuando los valores abarcan varios órdenes de magnitud (como los coliformes, de 1 000 000 a 800), se usa escala logarítmica: en ella, distancias iguales significan multiplicar por 10.
+# - El tratamiento primario es bueno para sólidos (60 %) pero pobre para DBO (35 %) y para bacterias (20 %): el secundario hace el trabajo fuerte.
